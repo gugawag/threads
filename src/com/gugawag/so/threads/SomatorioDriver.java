@@ -35,6 +35,7 @@ class Summation implements Runnable{
 			throw new IllegalArgumentException();
 
 		this.fim = fim;
+		this.inicio = inicio;
 		this.sumValue = sumValue;
 	}
 
@@ -59,10 +60,10 @@ public class SomatorioDriver{
 		Sum sumObject = new Sum();
 		int inicio = Integer.parseInt(args[0]);
 		int fim = Integer.parseInt(args[1]);
-		
+
 		Thread worker = new Thread(new Summation(inicio, fim, sumObject));
 		worker.start();
-		
+
 		try {
 			worker.join();
 		} catch (InterruptedException ie) { }
